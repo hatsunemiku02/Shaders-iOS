@@ -1,0 +1,6 @@
+framework module Shaders {
+  umbrella header "Shaders.h"
+
+  export *
+  module * { export * }
+}

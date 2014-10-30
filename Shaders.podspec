@@ -27,22 +27,8 @@ Pod::Spec.new do |s|
   s.platform     = :ios, '7.0'
   s.requires_arc = true
 
-  s.source_files   = 'Shaders.framework/Headers/*'
   s.preserve_paths = 'Shaders.framework/*'
-  s.exclude_files  = 'Shaders.framework/Info.plist'
-
-  other_frameworks =  ['Shaders']
-
-  other_ldflags = '$(inherited) -framework ' + other_frameworks.join(' -framework ') +
-    ' -lz -lstdc++'
-
-  s.xcconfig     = {
-    'FRAMEWORK_SEARCH_PATHS' => '"$(PODS_ROOT)/Shaders"',
-
-    'OTHER_LDFLAGS[arch=arm64]'  => other_ldflags,
-    'OTHER_LDFLAGS[arch=armv7]'  => other_ldflags,
-    'OTHER_LDFLAGS[arch=armv7s]' => other_ldflags
-  }
+  s.resources = 'Shaders.framework/*.metallib'
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
   # s.frameworks = 'UIKit', 'MapKit'
